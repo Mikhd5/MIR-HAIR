@@ -41,7 +41,7 @@ window.addEventListener('load',()=>setTimeout(()=>preloader.classList.add('done'
 setTimeout(()=>preloader.classList.add('done'),2400);
 document.getElementById('year').textContent=new Date().getFullYear();
 
-// The studio's video can be added as /assets/hero.mp4. If it is missing or cannot play,
+// The studio's video is loaded from /hero.mp4. If it cannot play,
 // the high-quality poster remains visible and the page layout is unchanged.
 const heroVideo=document.getElementById('heroVideo');
 heroVideo.addEventListener('canplay',()=>heroVideo.classList.add('ready'));

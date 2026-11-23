@@ -123,14 +123,22 @@ if (year) year.textContent = new Date().getFullYear();
 const heroVideo = document.getElementById('heroVideo');
 if (heroVideo) {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const mobile = window.matchMedia('(max-width: 700px)').matches;
-  const saveData = navigator.connection?.saveData === true;
-  heroVideo.preload = 'none';
-  if (!reduceMotion && !mobile && !saveData) {
-    heroVideo.addEventListener('canplay', () => heroVideo.classList.add('ready'), { once: true });
+  heroVideo.muted = true;
+  heroVideo.defaultMuted = true;
+  heroVideo.playsInline = true;
+  heroVideo.loop = true;
+  heroVideo.preload = 'metadata';
+
+  if (!reduceMotion) {
+    heroVideo.addEventListener('canplay', () => {
+      heroVideo.classList.add('ready');
+      heroVideo.play().catch(() => {
+        // Keep the poster visible if the browser blocks autoplay.
+      });
+    }, { once: true });
     heroVideo.addEventListener('error', () => heroVideo.classList.remove('ready'));
     heroVideo.load();
-    heroVideo.play().catch(() => {});
+    heroVideo.play().then(() => heroVideo.classList.add('ready')).catch(() => {});
   }
 }
 

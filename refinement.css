@@ -117,3 +117,76 @@ h1,h2,h3,.price-tab,.intro-stat-row strong,.length-option b,.selected-price stro
 @media(prefers-reduced-motion:reduce){
   .gallery-grid{scroll-behavior:auto}
 }
+
+
+/* MIRÉ — refined philosophy / why-us section */
+.why{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse at 92% 16%,rgba(190,145,98,.105),transparent 34%),
+    linear-gradient(155deg,#1c120e 0%,#130c09 58%,#100a08 100%);
+}
+.why:before{
+  content:"M";
+  position:absolute;z-index:-1;right:-.04em;top:12%;
+  color:rgba(222,190,151,.025);
+  font:italic 500 clamp(260px,42vw,620px)/.8 var(--serif);
+  pointer-events:none;
+}
+.why-heading{max-width:850px;margin:54px 0 48px}
+.why-heading .small-gold{display:flex;align-items:center;gap:13px;margin-bottom:23px}
+.why-heading .small-gold:before{content:"";width:30px;height:1px;background:var(--gold)}
+.why-heading h2{font-size:clamp(58px,7.6vw,96px);line-height:.96;letter-spacing:-.045em}
+.why-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.why-card{
+  position:relative;isolation:isolate;overflow:hidden;
+  min-height:238px;padding:28px 30px 27px;
+  display:flex;flex-direction:column;align-items:flex-start;
+  border:1px solid rgba(224,192,153,.24);border-radius:22px;
+  background:linear-gradient(135deg,rgba(91,62,42,.28),rgba(35,24,18,.56) 55%,rgba(25,17,13,.8));
+  box-shadow:inset 0 1px 0 rgba(255,244,225,.035),0 16px 38px rgba(0,0,0,.12);
+  transition:transform .45s cubic-bezier(.2,.7,.2,1),border-color .35s,background .35s;
+}
+.why-card:after{
+  content:"";position:absolute;z-index:-1;width:190px;height:190px;right:-90px;bottom:-115px;
+  border:1px solid rgba(224,192,153,.10);border-radius:50%;
+  box-shadow:0 0 0 18px rgba(224,192,153,.018),0 0 0 38px rgba(224,192,153,.012);
+}
+.why-card:hover{transform:translateY(-5px);border-color:rgba(224,192,153,.48);background:linear-gradient(135deg,rgba(105,72,48,.34),rgba(35,24,18,.68) 58%,rgba(25,17,13,.9))}
+.why-card-top{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:25px}
+.why-symbol{
+  width:49px;height:49px;display:grid;place-items:center;margin:0;
+  border:1px solid rgba(224,192,153,.35);border-radius:50%;
+  color:#e8cba5;background:rgba(220,185,144,.055);
+}
+.why-symbol svg{width:25px;height:25px;stroke:currentColor;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round}
+.why-index{font:500 8px/1 var(--sans);letter-spacing:.19em;color:rgba(220,190,158,.56)}
+.why-card h3{font:500 clamp(25px,2.8vw,34px)/1.08 var(--serif);letter-spacing:-.025em;color:#f2e5d4;margin:0 0 12px;max-width:15ch}
+.why-card p{font:400 12px/1.8 var(--sans);color:#b8a796;margin:0;max-width:39ch}
+@media(max-width:700px){
+  .why{padding-top:82px;padding-bottom:88px}
+  .why-heading{margin:39px 0 34px}
+  .why-heading .small-gold{font-size:8px;margin-bottom:20px}
+  .why-heading h2{font-size:clamp(48px,12.8vw,62px);line-height:.99;letter-spacing:-.04em}
+  .why-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+  .why-card{min-height:225px;padding:18px 16px 19px;border-radius:18px}
+  .why-card-top{align-items:flex-start;flex-direction:column;gap:13px;margin-bottom:22px}
+  .why-symbol{width:42px;height:42px}
+  .why-symbol svg{width:22px;height:22px}
+  .why-index{font-size:6.5px;letter-spacing:.14em}
+  .why-card h3{font-size:clamp(19px,5.2vw,24px);line-height:1.08;margin-bottom:9px}
+  .why-card p{font-size:10px;line-height:1.65}
+}
+@media(max-width:380px){
+  .why-grid{gap:9px}
+  .why-card{min-height:218px;padding:16px 13px}
+  .why-card h3{font-size:19px}
+  .why-card p{font-size:9px}
+  .why-index{font-size:6px}
+}
+@media(prefers-reduced-motion:reduce){
+  .why-card{transition:none}
+  .why-card:hover{transform:none}
+}
